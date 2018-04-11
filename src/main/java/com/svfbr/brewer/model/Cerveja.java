@@ -1,7 +1,8 @@
 package com.svfbr.brewer.model;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -16,14 +17,13 @@ import lombok.ToString;
 @NoArgsConstructor
 public class Cerveja {
 
-	@NotEmpty
+	@NotBlank(message = "SKU é obrigatório")
 	private String sku;
 
-	@NotEmpty
+	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
 
-	@NotEmpty
-	@Size(min = 20, message = "Descrição deve ter no mínimo 20 caracteres")
+	@Size(min = 1, max = 50, message = "O tamanho da descrição deve estar entre 1 e 50")
 	private String descricao;
 
 }
