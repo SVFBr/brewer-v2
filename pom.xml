@@ -12,25 +12,38 @@
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 		<java.version>1.8</java.version>
 		<maven-compiler-pluging.version>3.2</maven-compiler-pluging.version>
+		
+		<!-- Flywaydb 4.0.2 -->
+		<flyway.version>5.0.7</flyway.version>
+		
 		<!-- MySql 5.1.39 -->
 		<mysql-connector-java.version>5.1.46</mysql-connector-java.version>
+	
 		<!-- Spring MVC -->
 		<spring-framework.version>4.3.0.RELEASE</spring-framework.version>
+	
 		<!-- Servlet API -->
 		<servlet.version>3.1.0</servlet.version>
+	
 		<!-- Thymeleaf -->
 		<thymeleaf.version>3.0.0.RELEASE</thymeleaf.version>
+		
 		<!-- Bean Validation / Hibernate Validator -->
 		<hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
-		<!-- Thymeleaf - Layout Dialect -->
+		
+		<!-- Thymeleaf - Layout Dialect 2.0.0-SNAPSHOT / 2.2.2-->
 		<thymeleaf-layout.version>2.2.2</thymeleaf-layout.version>
+		
 		<!-- Logging -->
 		<log4j.version>2.11.0</log4j.version>
 		<jcl-over-slf4j.version>1.7.25</jcl-over-slf4j.version>
+		
 		<!-- JPA / Hibernate -->
 		<hibernate.version>5.1.0.Final</hibernate.version>
-		<!-- Flywaydb -->
-		<flyway.version>5.0.7</flyway.version>
+		
+		<!-- Spring Data JPA -->
+		<spring-data-jpa.version>1.10.2.RELEASE</spring-data-jpa.version>
+		
 	</properties>
 	<build>
 		<plugins>
@@ -84,6 +97,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
 		<!-- Servlet API -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -91,6 +105,7 @@
 			<version>${servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
+	
 		<!-- Thymeleaf -->
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
@@ -104,6 +119,7 @@
 			<version>${thymeleaf.version}</version>
 			<scope>compile</scope>
 		</dependency>
+
 		<!-- Bean Validation / Hibernate Validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -111,18 +127,22 @@
 			<version>${hibernate-validator.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		
 		<!-- Thymeleaf - Layout Dialect -->
 		<dependency>
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
 			<artifactId>thymeleaf-layout-dialect</artifactId>
 			<version>${thymeleaf-layout.version}</version>
 		</dependency>
+		
+		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.16.20</version>
 			<scope>provided</scope>
 		</dependency>
+		
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
@@ -144,6 +164,7 @@
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${jcl-over-slf4j.version}</version>
 		</dependency>
+		
 		<!-- JPA / Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -151,6 +172,7 @@
 			<version>${hibernate.version}</version>
 			<scope>compile</scope>
 		</dependency>
+	
 		<!-- Hibernate - Java 8 support -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -158,6 +180,7 @@
 			<version>${hibernate.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		
 		<!-- MySQL Driver -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -165,12 +188,21 @@
 			<version>${mysql-connector-java.version}</version>
 			<scope>provided</scope>
 		</dependency>
+	
 		<!-- Flywaydb -->
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 			<version>${flyway.version}</version>
 		</dependency>
+	
+		<!-- Spring Data JPA -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data-jpa.version}</version>
+		</dependency>
+	
 	</dependencies>
 	<repositories>
 		<repository>

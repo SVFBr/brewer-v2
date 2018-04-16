@@ -35,29 +35,31 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 
 	@Bean
 	public ViewResolver viewResolver() {
-		ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
-		thymeleafViewResolver.setTemplateEngine(templateEngine());
-		thymeleafViewResolver.setCharacterEncoding("UTF-8");
-		return thymeleafViewResolver;
+		ThymeleafViewResolver resolver = new ThymeleafViewResolver();
+		resolver.setTemplateEngine(templateEngine());
+		resolver.setCharacterEncoding("UTF-8");
+		return resolver;
 	}
 
+	@Bean
 	public TemplateEngine templateEngine() {
-		SpringTemplateEngine springTemplateEngine = new SpringTemplateEngine();
-		springTemplateEngine.setEnableSpringELCompiler(true);
-		springTemplateEngine.setTemplateResolver(iTemplateResolver());
-		springTemplateEngine.addDialect(new LayoutDialect());
-		return springTemplateEngine;
+		SpringTemplateEngine engine = new SpringTemplateEngine();
+		engine.setEnableSpringELCompiler(true);
+		engine.setTemplateResolver(templateResolver());
+		
+		engine.addDialect(new LayoutDialect());
+		return engine;
 	}
 
-	private ITemplateResolver iTemplateResolver() {
-		SpringResourceTemplateResolver springResourceTemplateResolver = new SpringResourceTemplateResolver();
-		springResourceTemplateResolver.setApplicationContext(applicationContext);
-		springResourceTemplateResolver.setPrefix("classpath:/templates/");
-		springResourceTemplateResolver.setSuffix(".html");
-		springResourceTemplateResolver.setTemplateMode(TemplateMode.HTML);
-		return springResourceTemplateResolver;
+	private ITemplateResolver templateResolver() {
+		SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
+		resolver.setApplicationContext(applicationContext);
+		resolver.setPrefix("classpath:/templates/");
+		resolver.setSuffix(".html");
+		resolver.setTemplateMode(TemplateMode.HTML);
+		return resolver;
 	}
-
+	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
