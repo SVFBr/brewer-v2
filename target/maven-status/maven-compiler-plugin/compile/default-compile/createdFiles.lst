@@ -1,0 +1,9 @@
+com\svfbr\brewer\model\Cliente.class
+com\svfbr\brewer\controller\UsuariosController.class
+com\svfbr\brewer\controller\EstiloController.class
+com\svfbr\brewer\config\init\AppInitializer.class
+com\svfbr\brewer\controller\CidadesController.class
+com\svfbr\brewer\controller\ClientesController.class
+com\svfbr\brewer\config\WebConfig.class
+com\svfbr\brewer\model\Cerveja.class
+com\svfbr\brewer\controller\CervejasController.class
