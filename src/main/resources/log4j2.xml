@@ -15,3 +15,5 @@
 		</Root>
 	</Loggers>
 </Configuration>
+<!-- private static final Logger logger = LoggerFactory.getLogger(CervejasController.class); -->
+<!-- if (logger.isDebugEnabled()) { logger.debug("/cervejas/novo " + cerveja);} -->
