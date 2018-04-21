@@ -27,7 +27,6 @@ public class Cerveja {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 
-	//@Pattern(regexp = "([a-zA-Z]{2}\\d{4})?", message = "SKU deve seguir o padrão XX999")
 	@SKU
 	@NotBlank(message = "SKU é obrigatório")
 	private String sku;

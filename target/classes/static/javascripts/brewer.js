@@ -1,6 +1,4 @@
 $(function() {
-	$('.js-decimal').maskMoney();
-	$('.js-plain').maskMoney({
-		precision : 0
-	});
+	$('.js-decimal').maskMoney({ decimal: ',', thousands: '.' });
+	$('.js-plain').maskMoney({ precision: 0, thousands: '.' });
 })
