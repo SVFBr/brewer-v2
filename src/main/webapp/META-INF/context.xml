@@ -8,7 +8,14 @@
 		jdbcUrl="jdbc:mysql://localhost/brewer?useSSL=false" 
 		user="root"
 		password="mysql" 
-		initialPoolSize="5"
-		minPoolSize="5" 
+		initialPoolSize="5" 
+		minPoolSize="5"
 		maxPoolSize="5" />
 </Context>
+
+<!-- 
+no tomcat >>
+c3p0-0.9.5.2.jar
+mchange-commons-java-0.2.11.jar
+mysql j versao dom pom 
+-->

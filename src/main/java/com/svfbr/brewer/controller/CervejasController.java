@@ -15,6 +15,7 @@ import com.svfbr.brewer.model.Cerveja;
 import com.svfbr.brewer.model.Origem;
 import com.svfbr.brewer.model.Sabor;
 import com.svfbr.brewer.repository.Estilos;
+import com.svfbr.brewer.service.CadastroCervejaService;
 
 @Controller
 public class CervejasController {
@@ -22,12 +23,15 @@ public class CervejasController {
 	@Autowired
 	private Estilos estilos;
 
+	@Autowired
+	private CadastroCervejaService cadastroCervejaService;
+
 	@RequestMapping("/cervejas/novo")
 	public ModelAndView novo(Cerveja cerveja) {
 		ModelAndView mv = new ModelAndView("cerveja/CadastroCerveja");
-		mv.addObject("sabores", Sabor.values()); // enum
-		mv.addObject("estilos", estilos.findAll()); // bd
-		mv.addObject("origens", Origem.values()); // enum
+		mv.addObject("sabores", Sabor.values());
+		mv.addObject("estilos", estilos.findAll());
+		mv.addObject("origens", Origem.values());
 		return mv;
 	}
 
@@ -37,8 +41,8 @@ public class CervejasController {
 		if (result.hasErrors()) {
 			return novo(cerveja);
 		}
+		cadastroCervejaService.salvar(cerveja);
 		attributes.addFlashAttribute("mensagem", "Cerveja salva com sucesso!");
-		System.out.println(">>> sku: " + cerveja.getSku());
 		return new ModelAndView("redirect:/cervejas/novo");
 	}
 
