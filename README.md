@@ -1,2 +1,4 @@
 # brewer-v2
-Projecto Cervejaria Brewer V2
+Projeto Cervejaria Brewer V2
+
+Utilizando Spring e Thymeleaf
