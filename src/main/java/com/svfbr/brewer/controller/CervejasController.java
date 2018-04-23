@@ -19,10 +19,10 @@ import com.svfbr.brewer.service.CadastroCervejaService;
 
 @Controller
 public class CervejasController {
-
+	
 	@Autowired
 	private Estilos estilos;
-
+	
 	@Autowired
 	private CadastroCervejaService cadastroCervejaService;
 
@@ -34,16 +34,16 @@ public class CervejasController {
 		mv.addObject("origens", Origem.values());
 		return mv;
 	}
-
+	
 	@RequestMapping(value = "/cervejas/novo", method = RequestMethod.POST)
-	public ModelAndView cadastrar(@Valid Cerveja cerveja, BindingResult result, Model model,
-			RedirectAttributes attributes) {
+	public ModelAndView cadastrar(@Valid Cerveja cerveja, BindingResult result, Model model, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			return novo(cerveja);
 		}
+		
 		cadastroCervejaService.salvar(cerveja);
 		attributes.addFlashAttribute("mensagem", "Cerveja salva com sucesso!");
 		return new ModelAndView("redirect:/cervejas/novo");
 	}
-
+	
 }
